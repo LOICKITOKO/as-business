@@ -1,0 +1,21 @@
+<!-- templates/music/delete_album.html -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supprimer un Album</title>
+</head>
+<body>
+    <h1>Êtes-vous sûr de vouloir supprimer l'album "{{ album.title }}" ?</h1>
+
+    <p>Cette action est irréversible. Voulez-vous continuer ?</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Supprimer</button>
+        <a href="{% url 'album_list' %}">Annuler</a>
+    </form>
+</body>
+</html>

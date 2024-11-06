@@ -1,0 +1,25 @@
+<!-- templates/music/album_detail.html -->
+<h1>{{ album.title }}</h1>
+<img src="{{ album.cover_image.url }}" alt="{{ album.title }} Image de couverture" width="200">
+<p>{{ album.description }}</p>
+<p>Prix: {{ album.price }} €</p>
+
+<h2>Commentaires</h2>
+<ul>
+    {% for comment in comments %}
+        <li>
+            <p>{{ comment.user_name }} : {{ comment.content }}</p>
+            <p>Likes : {{ comment.likes }}</p>
+        </li>
+    {% empty %}
+        <li>Aucun commentaire</li>
+    {% endfor %}
+</ul>
+
+<h3>Ajouter un commentaire</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="user_name" placeholder="Votre nom">
+    <textarea name="content" placeholder="Votre commentaire"></textarea>
+    <button type="submit">Commenter</button>
+</form>

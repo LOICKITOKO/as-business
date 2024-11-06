@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Albums</title>
+</head>
+<body>
+    <h1>Liste des Albums</h1>
+
+    {% if user.is_authenticated %}
+        <p>Bienvenue, {{ user.username }} !</p>
+        <a href="{% url 'add_album' %}">Ajouter un nouvel album</a>
+    {% else %}
+        <p><a href="{% url 'login' %}">Se connecter</a> pour gérer vos albums</p>
+    {% endif %}
+
+    <ul>
+        {% for album in albums %}
+            <li>
+                <h2><a href="{% url 'album_detail' album.id %}">{{ album.title }}</a></h2>
+                <img src="{{ album.cover_image.url }}" alt="{{ album.title }} Image de couverture" width="200">
+                <p>{{ album.description }}</p>
+                <p>Prix: {{ album.price }} €</p>
+
+                {% if user.is_authenticated and album.artist == user %}
+                    <!-- Si l'utilisateur est authentifié et c'est son album -->
+                    <a href="{% url 'edit_album' album.id %}">Modifier</a>
+                    <a href="{% url 'delete_album' album.id %}">Supprimer</a>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>Aucun album disponible</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
