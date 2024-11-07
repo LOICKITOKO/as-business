@@ -1,0 +1,67 @@
+.App {
+  text-align: center;
+}
+
+.album-card {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.album-card h2 {
+  font-size: 1.5em;
+  color: #333;
+}
+
+.album-card p {
+  font-size: 1em;
+  color: #555;
+}
+
+.album-card .price {
+  font-weight: bold;
+  color: #4caf50;
+}
+
+input, button {
+  padding: 10px;
+  margin: 10px;
+  font-size: 1em;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+form input {
+  margin-right: 10px;
+  width: 200px;
+}
+
+form button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
